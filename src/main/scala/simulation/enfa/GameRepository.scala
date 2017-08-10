@@ -18,7 +18,7 @@ trait GameRepository extends AutomatonCombinators {
     val semanticType = 'Word('F('i('r('e('b('a('l('l('epsilon))))))))) =>: 'Skill
   }
 
-  /* @combinator object WallOfIce {
+  @combinator object WallOfIce {
     def apply(word: Unit): Skill = Skill("Wall of Ice")
     val semanticType = 'Word('W('a('l('l('space('o('f('space('I('c('e('epsilon)))))))))))) =>: 'Skill
   }
@@ -36,7 +36,7 @@ trait GameRepository extends AutomatonCombinators {
   @combinator object DeepCut {
     def apply(word: Unit): Skill = Skill("Deep Cut")
     val semanticType = 'Word('D('e('e('p('space('C('u('t('epsilon))))))))) =>: 'Skill
-  } */
+  }
 
   @combinator object SkillSet {
     def apply(s1: Skill, s2: Skill): Set[Skill] = Set(s1, s2)

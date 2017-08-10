@@ -13,11 +13,11 @@ object GameInhabitation extends App {
     // We enumerate all words that occur in GameRepository, because there is a chance that we need to instantiate
     // alpha with any part from any word.
     val wordTypes = Seq(
-      'F('i('r('e('b('a('l('l('epsilon))))))))
-      //'W('a('l('l('space('o('f('space('I('c('e('epsilon))))))))))),
-      //'I('c('e('space('L('a('n('c('e('epsilon))))))))),
-      //'P('o('i('s('o('n('epsilon)))))),
-      //'D('e('e('p('space('C('u('t('epsilon))))))))
+      'F('i('r('e('b('a('l('l('epsilon)))))))),
+      'W('a('l('l('space('o('f('space('I('c('e('epsilon))))))))))),
+      'I('c('e('space('L('a('n('c('e('epsilon))))))))),
+      'P('o('i('s('o('n('epsilon)))))),
+      'D('e('e('p('space('C('u('t('epsilon))))))))
     )
 
     val kinding = Kinding(repository.alpha).addOptions(wordTypes.enumerate)
@@ -32,7 +32,7 @@ object GameInhabitation extends App {
 
     println("Starting inhabitation...")
 
-    val results = gamma.inhabit[Set[Skill]](Omega)
+    val results = gamma.inhabit[Set[Skill]]('SkillSet)
     results.terms.values.flatMap(_._2).foreach(println(_))
     results.interpretedTerms.values.flatMap(_._2).toList
   }
