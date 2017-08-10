@@ -3,6 +3,10 @@ import shapeless.feat.Enumeration
 
 package object simulation {
 
+  implicit class TermTypeSeqEnumerator(termTypes: Seq[Constructor]) {
+    def enumerate: Enumeration[Type] = termTypes.map(_.enumerate).reduce(_ union _)
+  }
+
   implicit class TermTypeEnumerator(termType: Constructor) {
     /**
       * Enumerate all possible instantiations of a type variable by recursively
