@@ -6,7 +6,7 @@ import simulation.AutomatonCombinators
 
 trait RunnerRepository extends AutomatonCombinators {
 
-  @combinator object RunRunner extends Run[PlayerPosition]('grnd)
+  @combinator object RunRunner extends Run[State]('grnd)
   @combinator object FinGrnd extends Fin('grnd)(PlayerPosition.startState)
 
   @combinator object GrndG extends Transition('grnd, 'g(_), 'grnd)(Action.run)
