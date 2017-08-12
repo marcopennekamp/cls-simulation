@@ -1,9 +1,9 @@
-package simulation
+package simulation.automaton
 
 import de.tu_dortmund.cs.ls14.cls.types._
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
 
-trait AutomatonCombinators extends Variables {
+trait AutomatonCombinators extends AutomatonVariables {
 
   /**
     * Generic combinator template for final states.

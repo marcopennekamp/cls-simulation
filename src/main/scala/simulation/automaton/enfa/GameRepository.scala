@@ -1,9 +1,9 @@
-package simulation.enfa
+package simulation.automaton.enfa
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.combinator
 import de.tu_dortmund.cs.ls14.cls.types._
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
-import simulation.AutomatonCombinators
+import simulation.automaton.AutomatonCombinators
 
 /**
   * In this repository, the type for the blank space symbol is called 'space.
@@ -39,7 +39,7 @@ trait GameRepository extends AutomatonCombinators {
   }
 
   @combinator object SkillSet {
-    def apply(s1: Skill, s2: Skill): Set[Skill] = Set(s1, s2)
+    def apply(s1: Skill, s2: Skill): List[Skill] = List(s1, s2)
     val semanticType = 'Skill =>: 'Skill =>: 'SkillSet
   }
 

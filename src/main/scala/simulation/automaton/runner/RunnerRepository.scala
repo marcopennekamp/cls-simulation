@@ -1,8 +1,8 @@
-package simulation.runner
+package simulation.automaton.runner
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.combinator
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
-import simulation.AutomatonCombinators
+import simulation.automaton.AutomatonCombinators
 
 trait RunnerRepository extends AutomatonCombinators {
 

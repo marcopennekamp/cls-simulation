@@ -1,4 +1,4 @@
-package simulation.enfa
+package simulation.automaton.enfa
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.ReflectedRepository
 import de.tu_dortmund.cs.ls14.cls.types._
@@ -9,7 +9,7 @@ object GameInhabitation extends App {
 
   val repository = new GameRepository { }
 
-  def inhabit(): List[Set[Skill]] = {
+  def inhabit(): Set[List[Skill]] = {
     // We enumerate all words that occur in GameRepository, because there is a chance that we need to instantiate
     // alpha with any part from any word.
     val wordTypes = Seq(
@@ -32,9 +32,9 @@ object GameInhabitation extends App {
 
     println("Starting inhabitation...")
 
-    val results = gamma.inhabit[Set[Skill]]('SkillSet)
+    val results = gamma.inhabit[List[Skill]]('SkillSet)
     results.terms.values.flatMap(_._2).foreach(println(_))
-    results.interpretedTerms.values.flatMap(_._2).toList
+    results.interpretedTerms.values.flatMap(_._2).toSet
   }
 
   println(inhabit())

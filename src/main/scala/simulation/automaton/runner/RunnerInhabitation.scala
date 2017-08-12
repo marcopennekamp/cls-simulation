@@ -1,4 +1,4 @@
-package simulation.runner
+package simulation.automaton.runner
 
 import de.tu_dortmund.cs.ls14.cls.interpreter._
 import de.tu_dortmund.cs.ls14.cls.types._

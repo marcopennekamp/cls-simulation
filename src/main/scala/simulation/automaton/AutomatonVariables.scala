@@ -1,7 +1,7 @@
-package simulation
+package simulation.automaton
 
 import de.tu_dortmund.cs.ls14.cls.types.Variable
 
-trait Variables {
+trait AutomatonVariables {
   val alpha = Variable("alpha")
 }
