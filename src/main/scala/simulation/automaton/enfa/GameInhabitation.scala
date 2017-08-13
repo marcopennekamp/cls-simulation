@@ -21,9 +21,6 @@ object GameInhabitation extends App {
     )
 
     val kinding = Kinding(repository.alpha).addOptions(wordTypes.enumerate)
-
-    wordTypes.enumerate.values.flatMap(_._2).foreach(println(_))
-
     val gamma = ReflectedRepository[GameRepository](inst = repository, kinding = kinding, semanticTaxonomy = Taxonomy.empty)
 
     println("Γ = {")

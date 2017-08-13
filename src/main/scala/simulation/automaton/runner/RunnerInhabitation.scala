@@ -1,25 +1,18 @@
 package simulation.automaton.runner
 
+import de.tu_dortmund.cs.ls14.cls.inhabitation.Tree
 import de.tu_dortmund.cs.ls14.cls.interpreter._
 import de.tu_dortmund.cs.ls14.cls.types._
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
-
 import simulation._
 
-object RunnerInhabitation extends App {
+object RunnerInhabitation extends App with Inhabitation[RunnerRepository, Option] {
 
-  val repository = new RunnerRepository { }
-
-  def inhabit(wordType: Constructor): Option[State] = {
-    val kinding = Kinding(repository.alpha).addOptions(wordType.enumerate)
-    val gamma = ReflectedRepository[RunnerRepository](inst = repository, kinding = kinding, semanticTaxonomy = Taxonomy.empty)
-
-    println("Starting inhabitation...")
-
-    val results = gamma.inhabit[State]('Word(wordType))
-    results.terms.values.flatMap(_._2).foreach(println(_))
-    results.interpretedTerms.values.flatMap(_._2).headOption
-  }
+  override val repository = new RunnerRepository { }
+  override val variables = Seq(repository.alpha)
+  override protected def createGamma(kinding: Kinding) = ReflectedRepository[RunnerRepository](inst = repository, kinding = kinding)
+  override protected def wrapInput(input: Constructor) = 'Word(input)
+  override protected def wrapOutput[A](terms: Stream[Tree], values: Stream[A]) = values.headOption
 
   // Runtime for different word sizes n in seconds:
   // n = 8:      4s
@@ -36,11 +29,10 @@ object RunnerInhabitation extends App {
   // n = 160: 7963s
   val word = {
     val constructor = (t: Type) => 'b('b('g('g(t))))
-    (1 to 1).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
+    (1 to 2).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
   }
 
   println(s"Word type: $word")
-
   println(inhabit(word))
 
 }

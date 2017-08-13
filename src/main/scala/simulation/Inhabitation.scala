@@ -2,7 +2,8 @@ package simulation
 
 import de.tu_dortmund.cs.ls14.cls.inhabitation.Tree
 import de.tu_dortmund.cs.ls14.cls.interpreter.ReflectedRepository
-import de.tu_dortmund.cs.ls14.cls.types.{Constructor, Kinding, Variable}
+import de.tu_dortmund.cs.ls14.cls.types.{Constructor, Kinding, Type, Variable}
+
 import scala.reflect.runtime.universe.WeakTypeTag
 
 /**
@@ -19,7 +20,6 @@ trait Inhabitation[Repository, Out[_]] {
 
   private def createKinding(input: Constructor): Kinding = {
     val parts = input.enumerate
-    parts.values.flatMap(_._2).foreach(println(_))
     variables.map(Kinding(_).addOptions(parts)).reduce(_ merge _)
   }
 
