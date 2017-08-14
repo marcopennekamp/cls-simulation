@@ -12,7 +12,10 @@ object RunnerInhabitation extends App with Inhabitation[RunnerRepository, Option
   override val variables = Seq(repository.alpha)
   override protected def createGamma(kinding: Kinding) = ReflectedRepository[RunnerRepository](inst = repository, kinding = kinding)
   override protected def wrapInput(input: Constructor) = 'Word(input)
-  override protected def wrapOutput[A](terms: Stream[Tree], values: Stream[A]) = values.headOption
+  override protected def wrapOutput[A](terms: Stream[Tree], values: Stream[A]) = {
+    println(terms.headOption)
+    values.headOption
+  }
 
   // Runtime for different word sizes n in seconds:
   // n = 8:      4s
@@ -29,7 +32,7 @@ object RunnerInhabitation extends App with Inhabitation[RunnerRepository, Option
   // n = 160: 7963s
   val word = {
     val constructor = (t: Type) => 'b('b('g('g(t))))
-    (1 to 1).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
+    (1 to 8).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
   }
 
   println(s"Word type: $word")
