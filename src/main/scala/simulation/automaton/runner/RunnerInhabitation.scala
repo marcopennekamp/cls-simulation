@@ -29,10 +29,10 @@ object RunnerInhabitation extends App with Inhabitation[RunnerRepository, Option
   // n = 160: 7963s
   val word = {
     val constructor = (t: Type) => 'b('b('g('g(t))))
-    (1 to 2).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
+    (1 to 1).foldLeft('epsilon: Constructor) { case (t, _) => constructor(t) }
   }
 
   println(s"Word type: $word")
-  println(inhabit(word))
+  println(inhabit[State](word))
 
 }
