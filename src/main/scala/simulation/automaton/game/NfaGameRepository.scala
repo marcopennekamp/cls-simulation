@@ -1,14 +1,13 @@
-package simulation.automaton.enfa
+package simulation.automaton.game
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.combinator
-import de.tu_dortmund.cs.ls14.cls.types._
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
 import simulation.automaton.AutomatonCombinators
 
 /**
   * In this repository, the type for the blank space symbol is called 'space.
   */
-trait GameRepository extends AutomatonCombinators {
+trait NfaGameRepository extends AutomatonCombinators {
 
   private val idu: Unit => Unit = identity
 

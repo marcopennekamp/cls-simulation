@@ -1,5 +1,5 @@
 package simulation.automaton
 
-package object enfa {
+package object game {
   case class Skill(name: String)
 }

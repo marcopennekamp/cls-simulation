@@ -1,13 +1,13 @@
-package simulation.automaton.enfa
+package simulation.automaton.game
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.ReflectedRepository
 import de.tu_dortmund.cs.ls14.cls.types._
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
 import simulation._
 
-object GameInhabitation extends App {
+object NfaGameInhabitation extends App {
 
-  val repository = new GameRepository { }
+  val repository = new NfaGameRepository { }
 
   def inhabit(): Set[List[Skill]] = {
     // We enumerate all words that occur in GameRepository, because there is a chance that we need to instantiate
@@ -21,7 +21,7 @@ object GameInhabitation extends App {
     )
 
     val kinding = Kinding(repository.alpha).addOptions(wordTypes.enumerate)
-    val gamma = ReflectedRepository[GameRepository](inst = repository, kinding = kinding, semanticTaxonomy = Taxonomy.empty)
+    val gamma = ReflectedRepository[NfaGameRepository](inst = repository, kinding = kinding, semanticTaxonomy = Taxonomy.empty)
 
     println("Γ = {")
     gamma.combinators.foreach { case (c, ty) => println(s"\t $c : $ty") }
