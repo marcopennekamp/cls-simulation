@@ -10,7 +10,7 @@ object NfaGameInhabitation extends App {
   val repository = new NfaGameRepository { }
 
   def inhabit(): Set[List[Skill]] = {
-    // We enumerate all words that occur in GameRepository, because there is a chance that we need to instantiate
+    // We enumerate all words that occur in NfaGameRepository, because there is a chance that we need to instantiate
     // alpha with any part from any word.
     val wordTypes = Seq(
       'F('i('r('e('b('a('l('l('epsilon)))))))),
