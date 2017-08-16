@@ -2,7 +2,6 @@ package simulation.rtg
 
 import de.tu_dortmund.cs.ls14.cls.types.Type
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
-import simulation.automaton.AutomatonVariables
 
 trait TreeGrammarCombinators extends TreeGrammarVariables {
 
