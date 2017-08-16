@@ -15,7 +15,11 @@ trait ListRepository extends TreeGrammarVariables with TreeGrammarCombinators {
     val semanticType = ('NtNat =>: 'Term(alpha1)) =>: ('NtList =>: 'Term(alpha2)) =>: ('NtList =>: 'Term('cons(alpha1, alpha2)))
   }
 
-  @combinator object Nat1 extends TerminalProduction[Int]('NtNat, 'zero, 0)
+  //@combinator object Nat1 extends TerminalProduction[Int]('NtNat, 'zero, 0)
+  @combinator object Nat1 {
+    def apply(): Int = 0
+    val semanticType = 'NtNat =>: 'Term('zero)
+  }
 
   @combinator object Nat2 {
     def apply(n: Int): Int = n + 1
