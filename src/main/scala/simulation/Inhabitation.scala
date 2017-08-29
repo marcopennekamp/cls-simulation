@@ -20,15 +20,18 @@ trait Inhabitation[Repository, Out[_]] {
 
   private def createKinding(input: Constructor): Kinding = {
     val parts = input.enumerate
+
+    // Print type variable kinding.
+    println("Type variable kinding:")
+    parts.values.flatMap(_._2).foreach(t => println(t))
+    println()
+
     variables.map(Kinding(_).addOptions(parts)).reduce(_ merge _)
   }
 
   def inhabit[A](input: Constructor)(implicit typeTag: WeakTypeTag[A]): Out[A] = {
     val kinding = createKinding(input)
     val gamma = createGamma(kinding)
-
-    // Print variable kindings.
-    kinding.underlyingMap.foreach { case (v, types) => println(s"$v -> $types"); types.values.flatMap(_._2).foreach(t => println(t))}
 
     // Print list of combinators.
     println("Γ = {")
