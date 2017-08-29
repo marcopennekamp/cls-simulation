@@ -1,7 +1,8 @@
-package simulation.rtg
+package simulation.rtg.list
 
 import de.tu_dortmund.cs.ls14.cls.interpreter.combinator
 import de.tu_dortmund.cs.ls14.cls.types.syntax._
+import simulation.rtg.{TreeGrammarCombinators, TreeGrammarVariables}
 
 trait ListRepository extends TreeGrammarVariables with TreeGrammarCombinators {
 

@@ -1,4 +1,4 @@
-package simulation.rtg
+package simulation.rtg.list
 
 import de.tu_dortmund.cs.ls14.cls.inhabitation.Tree
 import de.tu_dortmund.cs.ls14.cls.interpreter.ReflectedRepository
@@ -32,7 +32,7 @@ object ListInhabitation extends App with Inhabitation[ListRepository, Option] {
   // Starting inhabitation...
   // Some(List(2))
   // [success] Total time: 9 s
-  //println(inhabit[List[Int]]('cons('s('s('zero)), 'nil)))
+  println(inhabit[List[Int]]('cons('s('s('zero)), 'nil)))
 
   // Starting inhabitation...
   // Some(List(0, 1))
