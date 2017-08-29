@@ -30,12 +30,17 @@ object ListInhabitation extends App with Inhabitation[ListRepository, Option] {
   //println(inhabit[List[Int]]('cons('s('zero), 'nil)))
 
   // Starting inhabitation...
+  // Some(List(2))
+  // [success] Total time: 9 s
+  //println(inhabit[List[Int]]('cons('s('s('zero)), 'nil)))
+
+  // Starting inhabitation...
   // Some(List(0, 1))
-  // [success] Total time: 1376 s, completed Aug 16, 2017 7:40:46 PM
+  // [success] Total time: 1376 s
   //println(inhabit[List[Int]]('cons('zero, 'cons('s('zero), 'nil))))
 
   // Starting inhabitation...
   // Some(List(1, 1))
-  // [success] Total time: 428 s, completed Aug 16, 2017 8:07:20 PM
-  println(inhabit[List[Int]]('cons('s('zero), 'cons('s('zero), 'nil))))
+  // [success] Total time: 428 s
+  //println(inhabit[List[Int]]('cons('s('zero), 'cons('s('zero), 'nil))))
 }
